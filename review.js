@@ -323,17 +323,28 @@ const RafaelGetsCleanedUp = RafaelNoBadWords
 console.log(RafaelGetsCleanedUp);
 
 // Man math is hard. Let's make our computer do it for us. Use reduce() to find the total of the numbers in numbersToAddUp
-const numbersToAddUp = [99, 5677, 232, 84, 2, 231]
+const numbersToAddUp = [99, 5677, 232, 84, 2, 231];
+console.log(numbersToAddUp.reduce((acc, current) => acc + current));
 
 // ===== SPREAD OPERATOR ===== 
 
 // Create a variable and assign a value of a copied array using the spread operator
+const fruitGaloreCopy = [...fruitsGalore];
+console.log(fruitGaloreCopy);
 
 // Create two arrays with any elements and connect both of them using the spread operator. Save the connected arrays into a new variable.
+const desserts = ['cookies', 'brownies', 'pound cake', 'cheesecake', 'strawberry shortcake'];
+const sweets = ['chocolate', 'caramels', 'shortbread', 'macaroons'];
+const sweetTooth = [...desserts, ...sweets];
+console.log(sweetTooth);
 
 // Using the variable with the newly connected arrays, use spread operator to add something at the end.
+const moreSweets = [...sweetTooth, 'fruitcake'];
+console.log(moreSweets);
 
 // Using the variable with the newly connected arrays, use spread operator to add something at the beginning.
+const extremeSweets = ['gingerbread', ...moreSweets];
+console.log(extremeSweets);
 
 // ===== ACCESS =====
 
@@ -360,18 +371,49 @@ const donutShop =[
 ]
 
 // Anthony wants applecrumble. Print please!
+console.log(donutShop[1][0][1]);
+
 // Tosi wants ihatethis. :) Print!
+console.log(donutShop[2][0][0][1][0]);
 
 // =================================================
 //                     IF/ELSE
 // =================================================
+const teo = {
+  isPerson: true,
+  gender: 'male',
+  currentState: 'not hungry'
+};
 
 // Teo is a person. I would hope so...
 // Check if Teo is a person. If true, print 'Teo is a person!' if not then print 'Teo is not a person!'
 // If Teo is a person, check to see if he is a male or a female. If male, print 'You got it right!' if not then print 'Wrong. Teo is going to remove you from the class.'.
 // If male, check to see if Teo is hungry. If Teo is 'hungry' then print 'Let's buy Teo some tacos!'. If Teo is 'not hungry' then print 'He doesn't need to eat.'. Anything else, print 'If Teo is not hungry, am I hungry?'
 
+if (teo.isPerson) {
+  console.log('Teo is a person!');
+
+  if (teo.gender === 'male') {
+    console.log('You got it right!');
+
+    if (teo.currentState === 'hungry') {
+      console.log("Let's buy Teo some tacos!");
+    } else if (teo.currentState === 'not hungry') {
+      console.log("He doesn't need to eat.");
+    } else {
+      console.log('If Teo is not hungry, am I hungry?');
+    }
+  } else {
+    console.log('Wrong. Teo is going to remove you from the class.');
+  }
+} else {
+  console.log('Teo is not a person!');
+}
+
 // Create a if/else ternary to check if Gustavo is the coolest. If coolest, print 'You got that right!', else print 'James wants to argue. He says he's the best!'
+const gustavo = 'coolest';
+console.log(gustavo === 'coolest' ? 'You got that right!' : "James wants to argue. He says he's the best!");
+
 
 // =================================================
 //                     FUNCTIONS
@@ -380,11 +422,26 @@ const donutShop =[
 // Don't forget to call your functions :)
 
 // Create a function called sayGreeting and PRINT 'Hello, ma'amsir!'
+function sayGreeting() {
+  console.log("Hello, ma'amsir!");
+}
+sayGreeting();
 
 // Create a function that takes a string as a parameter. PRINT 'This is my (STRING)'. Please replace the (STRING) with the parameter. Don't play with me haha.
-
+function myString(str) {
+  console.log(`This is my ${str}`);
+}
+myString('child');
 
 // Create a function called add that takes in three number parameters. Create 3 variables and assign numerical values to them. Invoke your add() and pass in those three variables as arguments.
+const num1 = 23;
+const num2 = 17;
+const num3 = 4; 
+
+function add(n1, n2, n3) {
+  return n1 + n2 + n3;
+}
+console.log(add(num1, num2, num3));
 
 // Create a function called fightClub() that accepts a name parameter.  If the name:
 // 'Teo' RETURN '1st rule: You do not talk about Fight Club.'
@@ -393,27 +450,57 @@ const donutShop =[
 // 'Devin' RETURN '4th rule: Only two guys to a fight.'
 // Anything else, RETURN 'No shirts
 
+function fightClub(name) {
+  switch(name.toLowerCase()) {
+    case 'teo':
+      return '1st rule: You do not talk about Fight Club.';
+    case 'manara':
+      return '2nd rule: YOU DO NOT TALK ABOUT FIGHT CLUB.';
+    case 'liv':
+      return '3rd rule: If someone yells "Stop!", goes limp, taps out, the fight is over.';
+    case 'devin':
+      return '4th rule: Only two guys to a fight.';
+    default: 
+      return 'No shirts';
+  }
+}
+console.log(fightClub('Manara'));
+
 // Create a function called hello() that prints 'Hello'. Return an anonymous function inside hello() and have it print 'Goodbye'. Invoke your hello function in some way to see Hello and Goodbye in the console.
+function hello() {
+  console.log('Hello');
+  (() => console.log('Goodbye'))();
+}
+hello();
 
 // Create a function expression with your first name as the variable and then print your first and last name
+const britt = () => console.log('Britt Shook');
+britt();
 
 // Create an arrow function that accepts a number and have it return that number doubled
+const doubler = num => num * 2;
+console.log(doubler(120));
 
 // =================================================
 //                     OBJECTS
 // =================================================
 
 // Create an object and call it human. Add a name, age, and location property. Give the properties values.
-
-
-
+const human = {
+  firstName: 'Quiara',
+  age: '27',
+  location: 'Pittsburgh, PA'
+}
 
 // Access the name using dot notation
-
+console.log(human.firstName);
 
 // Access the age using square brackets
+console.log(human['age']);
 
 // Use object destructuring to access location
+const { location } = human;
+console.log(location);
 
 // ACCESS Granted
 const bulbasaur = {
@@ -433,19 +520,29 @@ const bulbasaur = {
 }
 
 // Print overgrow
+console.log(bulbasaur.abilities[0].ability);
 
 // Print cut
-
+console.log(bulbasaur.moves[2]);
 
 // Print Bulbahhhh!!!!!
-
+bulbasaur.sound();
 
 // Add a height of 7 to bulbasaur using the dot notation. (Don't change bulbasaur object manually)
+bulbasaur.height = 7;
+console.log(bulbasaur);
 
 // Add a property called order and assign it a value of 1 using the square brackets. (Don't change bulbasaur object manually)
+bulbasaur['order'] = 1;
+console.log(bulbasaur);
 
 // Print an array that contains every single properties in bulbasaur
+console.log(Object.keys(bulbasaur));
 
 // Print every single properties one by one in the console
+for (const key in bulbasaur) {
+  console.log(key);
+}
 
 // Print an array that contains every single values in bulbasaur
+console.log(Object.values(bulbasaur));
